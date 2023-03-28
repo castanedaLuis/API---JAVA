@@ -1,4 +1,4 @@
-package com.platzi.market.persistence.entity;
+package com.jlcastaneda.market.persintence.entity;
 
 import com.jlcastaneda.market.persintence.entity.Compra;
 

@@ -1,6 +1,5 @@
 package com.jlcastaneda.market.persintence.entity;
 
-import com.platzi.market.persistence.entity.Cliente;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -25,7 +24,7 @@ public class Compra {
 
     @ManyToOne
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
-    private com.platzi.market.persistence.entity.Cliente cliente;
+    private com.jlcastaneda.market.persintence.entity.Cliente cliente;
 
     @OneToMany(mappedBy = "producto")
     private List<ComprasProducto> productos;
