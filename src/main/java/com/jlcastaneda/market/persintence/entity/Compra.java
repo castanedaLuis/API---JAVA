@@ -1,7 +1,10 @@
 package com.jlcastaneda.market.persintence.entity;
 
+import com.platzi.market.persistence.entity.Cliente;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table (name = "compras")
@@ -20,6 +23,28 @@ public class Compra {
     @Column(name = "medio_pago")
     private String medioPago;
 
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
+    private com.platzi.market.persistence.entity.Cliente cliente;
+
+    @OneToMany(mappedBy = "producto")
+    private List<ComprasProducto> productos;
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<ComprasProducto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<ComprasProducto> productos) {
+        this.productos = productos;
+    }
 
     private String comentario;
     private String estado;

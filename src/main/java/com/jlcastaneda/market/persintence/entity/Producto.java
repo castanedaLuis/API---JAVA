@@ -1,6 +1,8 @@
 package com.jlcastaneda.market.persintence.entity;
 
 
+import com.platzi.market.persistence.entity.Categoria;
+
 import javax.persistence.*;
 
 //Esta clase mapea una tabla de la base de datos, le decimos al JAVA con la anotación Entity
@@ -28,6 +30,19 @@ public class Producto {
     private Integer cantidadStock;
 
     private Boolean estado;
+
+    //Relaciones
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false) //No ayuda para bloquear el update y inserte desde esta tabla
+    private com.platzi.market.persistence.entity.Categoria categoria;
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 
     public Integer getIdProducto() {
         return idProducto;
