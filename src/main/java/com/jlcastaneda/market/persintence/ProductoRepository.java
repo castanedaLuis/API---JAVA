@@ -18,7 +18,7 @@ public class ProductoRepository implements ProductRepository {
     @Autowired
     private ProductMapper mapper;
 
-    @Override
+    @Override //se utiliza para garantizar que el método en la subclase esté realmente sobrescribiendo el método en la superclase y para evitar errores de compilación.
     public List<Product> getAll(){
         List<Producto> productos = (List<Producto>) productoCrudRepository.findAll();
         return mapper.toProducts(productos);

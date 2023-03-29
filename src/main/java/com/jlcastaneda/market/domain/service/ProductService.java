@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class ProductService {
-    @Autowired
+    @Autowired  //Spring se encargará de crear una instancia de la clase correspondiente
     private ProductRepository productRepository;
 
     public List<Product> getAll() {
