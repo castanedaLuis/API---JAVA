@@ -29,6 +29,9 @@ public class Compra {
     @OneToMany(mappedBy = "producto")
     private List<ComprasProducto> productos;
 
+    private String comentario;
+    private String estado;
+
     public Cliente getCliente() {
         return cliente;
     }
@@ -44,9 +47,6 @@ public class Compra {
     public void setProductos(List<ComprasProducto> productos) {
         this.productos = productos;
     }
-
-    private String comentario;
-    private String estado;
 
     public Integer getIdCompra() {
         return idCompra;
