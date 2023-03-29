@@ -3,7 +3,7 @@ package com.jlcastaneda.market.domain;
 public class Category {
 
     private int categoryId;
-    private String categoty;
+    private String category;
     private boolean active;
 
     public int getCategoryId() {
@@ -14,12 +14,12 @@ public class Category {
         this.categoryId = categoryId;
     }
 
-    public String getCategoty() {
-        return categoty;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategoty(String categoty) {
-        this.categoty = categoty;
+    public void setCategory(String categoty) {
+        this.category = categoty;
     }
 
     public boolean isActive() {
