@@ -2,7 +2,7 @@ package com.jlcastaneda.market.persintence;
 
 import com.jlcastaneda.market.domain.Purchase;
 import com.jlcastaneda.market.domain.repository.PurchaseRepository;
-import com.jlcastaneda.market.persintence.crud.CompraCrudrepository;
+import com.jlcastaneda.market.persintence.crud.CompraCrudRepository;
 import com.jlcastaneda.market.persintence.entity.Compra;
 import com.jlcastaneda.market.persintence.mapper.PurchaseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.Optional;
 public class CompraRepository implements PurchaseRepository {
 
     @Autowired
-    private CompraCrudrepository compraCrudrepository;
+    private CompraCrudRepository compraCrudrepository;
 
     @Autowired
     private PurchaseMapper mapper;
@@ -31,6 +31,7 @@ public class CompraRepository implements PurchaseRepository {
         return compraCrudrepository.findByIdCliente(clientId)
                 .map(compras -> mapper.toPurchases(compras));
     }
+
 
     @Override
     public Purchase save(Purchase purchase) {
