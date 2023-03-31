@@ -1,6 +1,6 @@
 package com.jlcastaneda.market.web.controller.config;
 
-import org.apache.coyote.Request;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
