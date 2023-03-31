@@ -1,5 +1,6 @@
 package com.jlcastaneda.market.web.controller.security;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,5 +23,23 @@ public class JWTUtil {
                 .compact();
     }
 
+    public boolean validateToken(String token, UserDetails userDetails){
+        return userDetails.getUsername().equals(extractUsername(token)) && !isTokenExpired(token);
+    }
+
+    //Extraer el usuario
+    public String extractUsername(String token) {
+        return getClaims(token).getSubject();
+    }
+
+    //Verificamos si ya expiro el token
+    public boolean isTokenExpired(String token){
+        return getClaims(token).getExpiration().before(new Date());
+    }
+
+    //verificamos la firma
+    private Claims getClaims(String token) {
+        return Jwts.parser().setSigningKey(KEY).parseClaimsJws(token).getBody();
+    }
 
 }
